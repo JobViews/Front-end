@@ -8,6 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useAnimationConfig } from '@/animations/topDown';
+import { SyntheticEvent } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
     email: z.string().email("Digite um e-mail válido"),
@@ -15,9 +18,9 @@ const formSchema = z.object({
 })
 
 export default function LoginForm() {
-
+    const router = useRouter();
     const topDown = useAnimationConfig();
-
+    
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -26,9 +29,23 @@ export default function LoginForm() {
         },
     })
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        const { email, password } = form.getValues(); 
         console.log(values)
+        const result = await signIn('credentials', {
+            email,
+            password,
+            redirect: false
+        })
+        
+        if (result?.error) {
+            console.log(result)
+            return
+        }
+        router.replace('/dashboard')
+        console.log('logado')
     }
+    
 
     return (
         <motion.div
