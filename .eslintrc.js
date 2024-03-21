@@ -5,6 +5,8 @@ module.exports = {
 	},
 	'extends': [
 		'eslint:recommended',
+		'next/core-web-vitals',
+		'next'
 	],
 	'overrides': [
 		{
@@ -18,6 +20,9 @@ module.exports = {
 				'sourceType': 'script'
 			}
 		}
+	],
+	'plugins': [
+		'@next/eslint-plugin-next'
 	],
 	'parser': '@typescript-eslint/parser',
 	'parserOptions': {
