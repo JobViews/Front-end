@@ -27,13 +27,12 @@ Com Chronos, você pode:
 
 Se você está interessado em contribuir para o desenvolvimento do Chronos, sinta-se à vontade para conferir nosso repositório no GitHub e enviar suas contribuições. Juntos, podemos criar uma ferramenta ainda mais poderosa para otimização de tempo e sucesso profissional!
 
-## Contato
 
-Para mais informações ou para entrar em contato conosco, envie um e-mail para [contato@chronosapp.com](mailto:contato@chronosapp.com) ou visite nosso site em [www.chronosapp.com](https://www.chronosapp.com).
+## Stack utilizada
 
----
+**Front-end:** React, Next.js, Zustand, TailwindCSS, ShadcnUI.
 
-Obrigado por escolher Chronos para gerenciar seu tempo e alcançar seus objetivos profissionais! Que a orientação de Chronos o ajude em sua jornada para encontrar oportunidades e sucesso no mercado de trabalho.
+**Back-end:** Node, Express, PostgreSQL
 
 
 ## Autores
@@ -44,3 +43,10 @@ Obrigado por escolher Chronos para gerenciar seu tempo e alcançar seus objetivo
 - [Edson Junior ](https://www.github.com/octokatherine)
 
 
+## Contato
+
+Para mais informações ou para entrar em contato conosco, envie um e-mail para [contato@chronosapp.com](mailto:contato@chronosapp.com) ou visite nosso site em [www.chronosapp.com](https://www.chronosapp.com).
+
+---
+
+Obrigado por escolher Chronos para gerenciar seu tempo e alcançar seus objetivos profissionais! Que a orientação de Chronos o ajude em sua jornada para encontrar oportunidades e sucesso no mercado de trabalho.
