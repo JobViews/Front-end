@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "Chronos",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.4",
+    "@stylistic/eslint-plugin-js": "^1.7.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
