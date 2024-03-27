@@ -19,7 +19,7 @@ export function LoginForm(): JSX.Element {
 	return (
 		<Form {...form}>
 			<form
-				className='flex flex-col gap-4 w-full max-w-80'
+				className='flex flex-col gap-4 w-full max-w-96'
 				onSubmit={form.handleSubmit(onSubmit)}
 			>
 				<FormField
