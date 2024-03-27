@@ -7,7 +7,7 @@ import NextAuthSessionProvider from '@/providers/sessionProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'JobViews',
+	title: 'Chronos',
 	description: 'Plataforma para gerenciamento de vagas e otimização do seu tempo.',
 };
 
