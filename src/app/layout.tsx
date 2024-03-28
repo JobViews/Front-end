@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/app/global.css';
 import NextAuthSessionProvider from '@/providers/sessionProvider';
+import { ThemeProvider } from '@/providers/themeProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +16,15 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 		<html lang='en'>
 			<body className={inter.className}>
 				<NextAuthSessionProvider>
-					{children}
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange
+					>
+
+						{children}
+					</ThemeProvider>
 				</NextAuthSessionProvider>
 			</body>
 		</html>
