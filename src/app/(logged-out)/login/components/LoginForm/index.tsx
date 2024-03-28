@@ -27,7 +27,7 @@ export function LoginForm(): JSX.Element {
 					name='email'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Email</FormLabel>
+							<FormLabel className=''>Email</FormLabel>
 							<FormControl>
 								<Input placeholder='Digite seu email' {...field} />
 							</FormControl>
