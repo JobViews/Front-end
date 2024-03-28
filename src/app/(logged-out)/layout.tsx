@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import bgImage from '@/assets/images/login-bg.svg';
-import logo from '@/assets/images/logo_black.png';
+import logo from '@/assets/images/Chronos.svg';
 
 export default function LoggedOutLayout({ children }: React.PropsWithChildren): JSX.Element {
 	return (
@@ -15,7 +15,7 @@ export default function LoggedOutLayout({ children }: React.PropsWithChildren): 
 				className='md:block hidden w-full object-cover'
 			/>
 			<Image
-				src={logo.src}
+				src={logo}
 				alt=''
 				width={200}
 				height={200}
