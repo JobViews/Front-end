@@ -29,7 +29,7 @@ export function useLoginForm() {
 	async function onSubmit({ email, password }: FormValues) {
 		try {
 			const result = await signIn('credentials', {
-				username: 'george.bluth@reqres.in',
+				username: email,
 				email,
 				password,
 				redirect: false,
