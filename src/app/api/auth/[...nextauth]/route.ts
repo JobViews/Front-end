@@ -1,10 +1,10 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import {
-	NextApiHandler, NextApiRequest, NextApiResponse 
+	NextApiHandler, NextApiRequest, NextApiResponse
 } from 'next';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-const nextAuthOptions: NextAuthOptions = {
+export const nextAuthOptions: NextAuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		CredentialsProvider({
@@ -39,7 +39,10 @@ const nextAuthOptions: NextAuthOptions = {
 				if (response.ok) {
 					const data = await response.json();
 					const token = data.token;
-					return { token };
+					return {
+						token,
+						email: credentials?.email,
+					};
 				}
 
 				return null;
@@ -52,13 +55,13 @@ const nextAuthOptions: NextAuthOptions = {
 	},
 };
 
-export async function GET( req:NextApiRequest,res:NextApiResponse ) {
-	return NextAuth(req,res,nextAuthOptions);
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+	return NextAuth(req, res, nextAuthOptions);
 }
-export async function POST( req:NextApiRequest,res:NextApiResponse ) {
-	return NextAuth(req,res,nextAuthOptions);
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
+	return NextAuth(req, res, nextAuthOptions);
 }
-	
+
 const handler: NextApiHandler = NextAuth(nextAuthOptions);
 
 export default handler; 
