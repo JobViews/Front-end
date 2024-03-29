@@ -11,10 +11,14 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { ReloadIcon } from '@radix-ui/react-icons';
+
 import Link from 'next/link';
 
 export function LoginForm(): JSX.Element {
-	const { form, onSubmit } = useLoginForm();
+	const {
+		form, onSubmit, isLoading,
+	} = useLoginForm();
 
 	return (
 		<Form {...form}>
@@ -49,8 +53,13 @@ export function LoginForm(): JSX.Element {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit'>Entrar</Button>
-				<p className='text-gray-400 text-xs text-right'>Ainda não tem conta? <Link href='#' className='hover:text-white'>Registre-se aqui</Link>.</p>
+				<Button type='submit'>	
+					{isLoading ?
+						<ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
+						: 'Entrar'}
+
+				</Button>
+				<p className='text-gray-400 text-xs text-right'><Link href='/create' className='hover:text-white'>Registre-se aqui</Link>.</p>
 			</form>
 		</Form>
 	);
