@@ -3,6 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useToast } from '@/components/ui/use-toast';
+import { useState } from 'react';
+
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -16,6 +19,10 @@ const formSchema = z.object({
 
 
 export function useLoginForm() {
+	const [isLoading, setIsLoading] = useState(false);
+
+	const { toast } = useToast();
+
 	const router = useRouter();
 
 	const form = useForm<FormValues>({
@@ -28,6 +35,7 @@ export function useLoginForm() {
 
 	async function onSubmit({ email, password }: FormValues) {
 		try {
+			setIsLoading(true);
 			const result = await signIn('credentials', {
 				username: email,
 				email,
@@ -35,17 +43,27 @@ export function useLoginForm() {
 				redirect: false,
 			});
 			if (result?.error) {
-				return new Error('Não foi possível fazer a autenticação');
-			}
-			router.push('/dashboard');
-		} catch (error) {
-			return new Error('Não foi possível fazer a autenticação');
+				setIsLoading(false);
+				toast({
+					title: 'Erro na autenticação',
+					description: 'Verifique a veracidade dos dados digitados',
+					variant: 'destructive',
 
+				});
+				return;
+			}
+			setIsLoading(false);
+			router.replace('/dashboard');
+			
+		} catch (error) {
+			setIsLoading(false);
+			return new Error('Não foi possível fazer a autenticação');
 		}
 	}
 
 	return {
 		form,
 		onSubmit,
+		isLoading,
 	};
 }
