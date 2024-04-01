@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 				<NextAuthSessionProvider>
 					<ThemeProvider
 						attribute='class'
-						defaultTheme='system'
+						defaultTheme='dark'
 						enableSystem
 						disableTransitionOnChange
 					>
