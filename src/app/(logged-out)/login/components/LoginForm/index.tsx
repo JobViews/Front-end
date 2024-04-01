@@ -17,7 +17,9 @@ import Link from 'next/link';
 
 export function LoginForm(): JSX.Element {
 	const {
-		form, onSubmit, isLoading,
+		form,
+		onSubmit,
+		isLoading, 
 	} = useLoginForm();
 
 	return (
@@ -31,7 +33,7 @@ export function LoginForm(): JSX.Element {
 					name='email'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className=''>Email</FormLabel>
+							<FormLabel>Email</FormLabel>
 							<FormControl>
 								<Input placeholder='Digite seu email' {...field} />
 							</FormControl>

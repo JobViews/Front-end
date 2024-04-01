@@ -20,7 +20,10 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import {
-	Tabs, TabsContent, TabsList, TabsTrigger
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger
 } from '@/components/ui/tabs';
 
 import { useCreateAccountForm } from './hooks/useCreateAccountForm';
@@ -28,7 +31,7 @@ import { useState } from 'react';
 
 
 export function CreateAccountForm(): JSX.Element {
-	const [activeTab, setActiveTab] = useState<'account' | 'password'> ('account');
+	const [activeTab, setActiveTab] = useState<'account' | 'password'>('account');
 	const { form, onSubmit } = useCreateAccountForm();
 
 	const handleTabStep = (tab: 'account' | 'password') => {

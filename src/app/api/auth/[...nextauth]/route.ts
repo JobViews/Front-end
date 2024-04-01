@@ -1,8 +1,17 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import {
-	NextApiHandler, NextApiRequest, NextApiResponse
+	NextApiHandler,
+	NextApiRequest,
+	NextApiResponse
 } from 'next';
+
 import CredentialsProvider from 'next-auth/providers/credentials';
+
+interface User {
+	id: string;
+	token: string;
+	email: string;
+  }
 
 export const nextAuthOptions: NextAuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
@@ -23,7 +32,6 @@ export const nextAuthOptions: NextAuthOptions = {
 					type: 'password',
 				},
 			},
-			// @ts-ignore
 			authorize: async (credentials) => {
 				const response = await fetch('https://reqres.in/api/login', {
 					method: 'POST',
@@ -42,7 +50,7 @@ export const nextAuthOptions: NextAuthOptions = {
 					return {
 						token,
 						email: credentials?.email,
-					};
+					} as User;
 				}
 
 				return null;
