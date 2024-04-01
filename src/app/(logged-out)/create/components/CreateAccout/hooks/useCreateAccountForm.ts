@@ -21,16 +21,9 @@ const formSchema = z.object({
 
 export function useCreateAccountForm() {
 
-	const form = useForm<FormValues>({
-		resolver: zodResolver(formSchema),
-		defaultValues: {
-			email: '',
-			password: '',
-		},
-	});
+	const form = useForm<FormValues>({ resolver: zodResolver(formSchema) });
 
 	async function onSubmit() {
-
 	}
 
 	return {
