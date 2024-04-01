@@ -1,6 +1,6 @@
 import { LoginForm } from './components/LoginForm';
 
-function LoginPage() {
+export default function LoginPage():JSX.Element {
 	return (
 		<section
 			className='w-full text-white p-8 flex flex-col gap-4  justify-center items-center'
@@ -14,4 +14,4 @@ function LoginPage() {
 	);
 }
 
-export default LoginPage;
+
