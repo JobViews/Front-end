@@ -61,7 +61,7 @@ export function LoginForm(): JSX.Element {
 						: 'Entrar'}
 
 				</Button>
-				<p className='text-gray-400 text-xs text-right'><Link href='/create' className='hover:text-white'>Registre-se aqui</Link>.</p>
+				<p className='text-white text-xs text-right'><Link href='/create' className='hover:text-white'>Registre-se aqui</Link>.</p>
 			</form>
 		</Form>
 	);
