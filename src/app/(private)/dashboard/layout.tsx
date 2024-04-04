@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '@/app/global.css';
 
-const inter = Inter({ subsets: ['latin'] });
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
 	title: 'Chronos',
@@ -21,8 +20,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
-				{children}
+			<body className={'flex flex-col items-center mx-auto justify-center bg-black w-full h-full '}>
+				<Header/>
+				<div className='flex flex-grow justify-center items-center w-full'>
+					{children}
+				</div>
 			</body>
 		</html>
 	);
