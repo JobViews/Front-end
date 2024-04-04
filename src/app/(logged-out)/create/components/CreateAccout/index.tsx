@@ -60,14 +60,14 @@ export function CreateAccountForm(): JSX.Element {
 
 
 			<Tabs value={activeTab} className='w-[400px]'>
-				<TabsList className='grid w-full grid-cols-2 bg-black text-white'>
+				<TabsList className='grid w-full grid-cols-2 bg-transparent text-white'>
 					<TabsTrigger value='account' onClick={() => handleTabStep('account')}>Informações</TabsTrigger>
 					<TabsTrigger value='password' onClick={() => handleTabStep('password')}>Senha</TabsTrigger>
 				</TabsList>
-				<TabsContent value='account' className='bg-black'>
+				<TabsContent value='account' className=''>
 					<Form {...form}>
 						<form onSubmit={form.handleSubmit(onSubmit)}>
-							<Card className='bg-black text-white'>
+							<Card className='text-white bg-transparent'>
 								<CardHeader>
 									<CardTitle>Informações</CardTitle>
 									<CardDescription className='text-gray-300'>
@@ -114,7 +114,7 @@ export function CreateAccountForm(): JSX.Element {
 				<TabsContent value='password'>
 					<Form {...form}>
 						<form onSubmit={form.handleSubmit(onSubmit)}>
-							<Card className='bg-black text-white'>
+							<Card className='bg-transparent text-white'>
 								<CardHeader>
 									<CardTitle>Senha</CardTitle>
 									<CardDescription className='text-gray-200'>
